@@ -22,30 +22,43 @@ function HomePage() {
         {filmList.map((curFilm, index) => (
  
           <div className="col" key={index}>
-            <div className="card">
-            <div className="title">Titolo Film: {curFilm.title}</div>
-            <div ><img className="cover" src={`http://image.tmdb.org/t/p/w342${curFilm.poster_path}`}alt="" /></div>
-            <div>Titolo Originale:{curFilm.original_title}</div>
-            <div>Voto:{curFilm.vote_average}</div>
-            <LinguaFilm filmLanguage={curFilm.original_language} />
-            </div>
+<div class="card">
+<div className="badge">Film</div>
+  <div class="content">
+    <img className="cover" src={`http://image.tmdb.org/t/p/w200${curFilm.poster_path}`} alt="" />
+    <div class="info">
+    <div>Titolo Film: {curFilm.title}</div>
+    <div>Titolo Originale:{curFilm.original_title}</div>
+    <LinguaFilm filmLanguage={curFilm.original_language} />
+    <div>Voto:{curFilm.vote_average}</div>
+    </div>
+  </div>
+</div>
           </div> 
           ))}</section>
      
+{/* serie tv card section  */}
 
-      {/* section card serie */}
-      <section><ul > 
+     <section className="row">
         {serieList.map((curSerie, index) => (
+ 
+          <div className="col" key={index}>
+<div class="card">
+  <div className="badge">Serie</div>
+  <div class="content">
+    <img className="cover" src={`http://image.tmdb.org/t/p/w200${curSerie.poster_path}`} alt="" />
+    <div class="info">
+    <div>Titolo SerieTv: {curSerie.name}</div>
+    <div>Titolo Originale:{curSerie.original_name}</div>
+    <LinguaFilm filmLanguage={curSerie.original_language} />
+    <div>Voto:{curSerie.vote_average}</div>
+    </div>
+  </div>
+</div>
+          </div> 
+          ))}</section>
 
-          <li key={index}>
-            <div>Titolo Serie Tv: {curSerie.name}</div>
-            <div><img className="cover" src={`http://image.tmdb.org/t/p/w200${curSerie.poster_path}`}alt="" /></div>
-            <div>Titolo Originale:{curSerie.original_name}</div>
-            <div>Voto:{curSerie.vote_average}</div>
-            <LinguaFilm filmLanguage={curSerie.original_language} />
-
-          </li>))}</ul>
-      </section>
+      
       </main>
     </>
 
