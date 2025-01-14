@@ -17,14 +17,12 @@ function HomePage() {
         query: searchValue,
       },
 
-
     }).then((resp) => {
       setFilmList(resp.data.results);
-      console.log(resp.data.results);
-
+      
     })
   }
-
+// creo la funzione che chiama api per prendere le serie tv
   function getSeries() {
     axios.get(`https://api.themoviedb.org/3/search/tv`, {
       params: {
@@ -65,6 +63,7 @@ function HomePage() {
 
           <li key={index}>
             <div>Titolo: {curFilm.title}</div>
+            <div><img src={`http://image.tmdb.org/t/p/w200${curFilm.poster_path}`}alt="" /></div>
             <div>Titolo Originale:{curFilm.original_title}</div>
             <div>Voto:{curFilm.vote_average}</div>
             <LinguaFilm filmLanguage={curFilm.original_language} />
