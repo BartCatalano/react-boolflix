@@ -14,6 +14,18 @@ function HomePage() {
 
     return <img className="flag" src={bandiera} alt={`${filmLanguage}`} />;
   };
+// function starVote (vote){
+//   vote = Number(vote)
+//   let voto = Math.ceil( vote / 2 );
+//   if(voto === 1){return "una stella colorata 4 no"}
+//   else if(voto === 2){return "2 stella colorata 3 no"}
+//   else if(voto === 3){return "3 stella colorata 3 no"}
+//   else if(voto === 5){return "4 stella colorata 1 no"}
+//   else{return "5 stelle colorate"}
+  
+  
+// };
+
 
   return (
     <>
@@ -34,6 +46,7 @@ function HomePage() {
     <div>Titolo Originale:{curFilm.original_title}</div>
     <LinguaFilm filmLanguage={curFilm.original_language} />
     <div>Voto:{curFilm.vote_average}</div>
+    {/* <div>{starVote(curFilm.vote_average)}</div> */}
     </div>
   </div>
 </div>
