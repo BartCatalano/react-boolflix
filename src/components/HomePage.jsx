@@ -5,6 +5,8 @@ function HomePage () {
     const [searchValue, setSearchValue] = useState("");
     const[filmList, setFilmList] = useState([]);
 
+  
+
     // creo la funzione che mi recupera i film
   function getMovies(){
     axios.get(`https://api.themoviedb.org/3/search/movie`, {
@@ -19,8 +21,19 @@ function HomePage () {
         
     })
   }
+const filmLanguage="";
+  // gestione bandiera lingua
+  function LinguaFilm ({filmLanguage}) {
+    let bandiera = "";
+    if(filmLanguage === "en"){ bandiera = "./public/en.png"}
+    else if (filmLanguage === "it") {bandiera ="./public/it.png"}
+     else { bandiera = "./public/placeholder.png"}
+      
+     return <img src={bandiera} alt={`${filmLanguage}`} />;
+      
+      
 
- 
+    };
 
     return(
         <>
@@ -32,8 +45,16 @@ function HomePage () {
         {/* Section card */}
         <section><ul >
          {filmList.map((curFilm, index) => (
-            
-               <li key={index}>{curFilm.original_title}
+           
+               <li key={index}>
+                <div>Titolo: {curFilm.title}</div>
+                <div>Titolo Originale:{curFilm.original_title}</div>
+                <div>Voto:{curFilm.vote_average}</div>
+                <div><LinguaFilm filmLanguage={curFilm.original_language} /></div>
+                
+                
+
+
 
                   </li>  ))}</ul>
                   
