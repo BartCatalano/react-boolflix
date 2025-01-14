@@ -19,6 +19,9 @@ function HomePage() {
     <>
    <main className="homeArea">
      <section className="row">
+      {filmList.length || serieList.length > 0 ? (""): ( <div className="homeTitle"> <h1 >Utilizza la barra di ricerca per trovare i tuoi film preferiti! </h1>
+        <img className="logoHome" src="Boolflix.png" alt=""/>
+      </div>)}
         {filmList.map((curFilm, index) => (
  
           <div className="col" key={index}>

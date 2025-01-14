@@ -50,7 +50,19 @@
     background-color: gray;
     overflow: auto;
     height: calc(100vh - 100px);
-   
+}
+.homeTitle{
+ border: 1px solid white;
+  font-size: 30px;
+  margin: 10%;
+  background-color: black;
+  color: white;
+  padding: 10px;
+
+}
+.logoHome{
+  margin-left:calc(50% - 80px);
+  margin-top: 30px;
 }
 
 /* CARD */
