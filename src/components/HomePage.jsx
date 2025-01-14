@@ -62,7 +62,7 @@ function HomePage() {
         {filmList.map((curFilm, index) => (
 
           <li key={index}>
-            <div>Titolo: {curFilm.title}</div>
+            <div>Titolo Film: {curFilm.title}</div>
             <div><img src={`http://image.tmdb.org/t/p/w200${curFilm.poster_path}`}alt="" /></div>
             <div>Titolo Originale:{curFilm.original_title}</div>
             <div>Voto:{curFilm.vote_average}</div>
@@ -72,11 +72,12 @@ function HomePage() {
       </section>
 
       {/* section card serie */}
-      <section><ul >
+      <section><ul > 
         {serieList.map((curSerie, index) => (
 
           <li key={index}>
-            <div>Titolo: {curSerie.name}</div>
+            <div>Titolo Serie Tv: {curSerie.name}</div>
+            <div><img src={`http://image.tmdb.org/t/p/w200${curSerie.poster_path}`}alt="" /></div>
             <div>Titolo Originale:{curSerie.original_name}</div>
             <div>Voto:{curSerie.vote_average}</div>
             <LinguaFilm filmLanguage={curSerie.original_language} />
