@@ -15,27 +15,20 @@ function HomePage() {
     return <img className="flag" src={bandiera} alt={`${filmLanguage}`} />;
   };
 // creo la funzione che divide il voto e lo arrotonda 
-function creaStelle(voto) {
-  let votoNumero = parseInt(voto);
-  let votoStella = Math.ceil(votoNumero / 2);  // Arrotonda il numero verso l'alto
-
-  let stelle = "";
+function CreaStelle ({voto})  {
+   // Arrotonda il numero per eccesso
+const votoFinale = Math.ceil(voto / 2); 
+const stelleArray=[];
+for(let i=0; i<5; i++) {
+  (i<votoFinale) ? stelleArray.push(`solid`) : stelleArray.push(`regular`)
+}
+return( 
+  stelleArray.map((stelle, i ) => (
+<i key={i} className={`fa-${stelle} fa-star`}></i>
   
-  if (votoStella === 0) {
-    stelle = "☆☆☆☆☆";
-  } else if (votoStella === 1) {
-    stelle = "★☆☆☆☆";
-  } else if (votoStella === 2) {
-    stelle = "★★☆☆☆";
-  } else if (votoStella === 3) {
-    stelle = "★★★☆☆";
-  } else if (votoStella === 4) {
-    stelle = "★★★★☆";
-  } else if (votoStella === 5) {
-    stelle = "★★★★★";
-  }
-
-  return stelle;
+  )))
+  
+  
 }
 
 
@@ -59,7 +52,7 @@ function creaStelle(voto) {
     <div>Titolo Originale:{curFilm.original_title}</div>
     <LinguaFilm filmLanguage={curFilm.original_language} />
     <div>Voto:{curFilm.vote_average}</div>
-     <div>{creaStelle(curFilm.vote_average)}</div> 
+    <CreaStelle voto={curFilm.vote_average} />
     </div>
   </div>
 </div>
@@ -80,7 +73,7 @@ function creaStelle(voto) {
     <div>Titolo SerieTv: {curSerie.name}</div>
     <div>Titolo Originale:{curSerie.original_name}</div>
     <LinguaFilm filmLanguage={curSerie.original_language} />
-    <div>Voto:{creaStelle(curSerie.vote_average)}</div>
+    <CreaStelle voto={curSerie.vote_average} />
     </div>
   </div>
 </div>
