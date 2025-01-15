@@ -42,14 +42,16 @@ function ricercaTotale() {
 }
 
 // imposto il global context
-const { global } = createContext(GlobalContext);
+// const { global } = createContext(GlobalContext);
+
+
 
 const globalContextData = { 
   ricercaTotale ,
   filmList, 
   serieList, 
   searchValue, 
-  setSearchValue 
+  setSearchValue,
 }
  
 
